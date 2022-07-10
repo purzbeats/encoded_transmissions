@@ -1,33 +1,28 @@
-var leftBuffer;
-var rightBuffer;
+// Description: Call `enterLayer()` with two different keys, in order to create
+// two Graphics that are drawn side by side.
 
 function setup() {
-    // 800 x 400 (double width to make room for each "sub-canvas")
-    createCanvas(800, 400);
-    // Create both of your off-screen graphics buffers
-    leftBuffer = createGraphics(400, 400);
-    rightBuffer = createGraphics(400, 400);
+  createCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
-    // Draw on your buffers however you like
-    drawLeftBuffer();
-    drawRightBuffer();
-    // Paint the off-screen buffers onto the main canvas
-    image(leftBuffer, 0, 0);
-    image(rightBuffer, 400, 0);
-}
+  beginLayer('left', width, height);
+  
+  for (let y = 0; y < height; y++) {
+    stroke((y + frameCount) % height, width, height);
+    line(0, y, width, height - y)
+  }
+  
 
-function drawLeftBuffer() {
-    leftBuffer.background(0, 0, 0);
-    leftBuffer.fill(255, 255, 255);
-    leftBuffer.textSize(32);
-    leftBuffer.text("This is the left buffer!", 50, 50);
-}
+  endLayer();
 
-function drawRightBuffer() {
-    rightBuffer.background(255, 100, 255);
-    rightBuffer.fill(0, 0, 0);
-    rightBuffer.textSize(32);
-    rightBuffer.text("This is the right buffer!", 50, 50);
+  beginLayer('right', width, height);  
+
+  
+  let s = 'Test typing stuff in a box in a box in a box.';
+  rect(10, 10, 80, 90);
+  text(s, 15, 15, 70, 80); // Text wraps within text box
+
+  
+  endLayer();
 }
