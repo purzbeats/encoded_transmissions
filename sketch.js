@@ -178,7 +178,11 @@ function draw() {
 
 
       getRect();
-      
+      rectMode(CENTER);
+      noFill();
+      stroke(col2);
+      strokeWeight(10);
+      rect(400, 400, width - 5, height - 5);
       // getScribbleRect();
       // speedMult = speedMult + 1000;
 
