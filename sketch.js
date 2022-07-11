@@ -105,27 +105,16 @@ function setup() {
  
   cnv = createCanvas(800, 800);
   centerCanvas();
-
   pixelDensity(3);
 
   choices();
   let c = color(bg);
   background(c);
 
-  // drawText();
   printInfo();
+
 }
 
-function drawText() {
-      fill(0);
-      rect(0, height - 150, 800, 150);
-      textFont('Courier');
-      textSize(25);
-      fill(255);
-      text(fxhash, 20, height - 50, width, height);
-      text("Palette: " + paletteName, 20, height - 85, width, height);
-      text("Frame: " + frameCount, 20, height - 120, width, height);
-}
 
 function getScribbleRect() {
 
@@ -152,17 +141,38 @@ function getScribbleRect() {
 }
 
 
-      function mousePressed() {
-        
+function keyTyped() {
+  if (key === 's') {
+          save();
       }
+}
 
 
 function draw() {
 
 
 
-      
-      painter();
+      if (frameCount < 500) {     
+        painter();
+      } else if (frameCount > 500) {
+        // stroke(0);
+        // strokeWeight(5);
+        // rect(700, 700, 125, 125);
+        // stroke(col4);
+        // strokeWeight(5);
+        // fill(bg);
+        // rect(700, 700, 120, 120);
+        // strokeWeight(4);
+        // stroke(col3);
+        // scribble.scribbleRect(700, 700, 90, 90);    
+        // stroke(col2);
+        // scribble.scribbleRect(700, 700, 60, 60);    
+        // stroke(col1);
+        // scribble.scribbleRect(700, 700, 30, 30);    
+      }
+
+
+
 
       rectMode(CENTER);
       noFill();
@@ -172,8 +182,10 @@ function draw() {
       stroke(0);
       strokeWeight(4);
       rect(400, 400, width - 4, height - 4);
-      // getScribbleRect();
-      // speedMult = speedMult + 1000;
+      
+      if (frameCount > 600) {
+        noLoop();
+      }
 
 }
 
