@@ -13,7 +13,64 @@ function painter() {
     jazz();
   } else if (stateOfArrayIndex == 6) {
     zoomOut();
+  } else if (stateOfArrayIndex == 7) {
+    sketch();
+  } else if (stateOfArrayIndex == 8) {
+    sketchCircles();
   }
+}
+
+function sketchCircles() {
+
+  strokeWeight(1);
+  rectMode(CENTER);  
+  noFill();
+
+  stroke(col1);
+  scribble.scribbleEllipse(x, 0, blockWidth / 16, blockHeight * Math.floor(fxrand() * 2 + 2));
+
+  stroke(col2);
+  scribble.scribbleEllipse(x, 200, blockWidth / 2, blockHeight * Math.floor(fxrand() * 4 + 2));
+
+  stroke(col3);
+  scribble.scribbleRect(x, 400, blockWidth / 4, blockHeight * Math.floor(fxrand() * 16 + 2));
+
+  stroke(col4);
+  scribble.scribbleRect(x, 400, blockWidth / 4, blockHeight * Math.floor(fxrand() * 8 + 2));
+
+  stroke(col2);
+  scribble.scribbleEllipse(x, 600, blockWidth / 2, blockHeight * Math.floor(fxrand() * 4 + 2));
+  
+  stroke(col1);
+  scribble.scribbleEllipse(x, 800, blockWidth / 16, blockHeight * Math.floor(fxrand() * 2 + 2));
+
+   if (x < width + 100) {
+      x = x + spacing; 
+   }
+}
+
+
+
+function sketch() {
+
+  strokeWeight(1);
+  rectMode(CENTER);  
+  noFill();
+
+  stroke(col1);
+  scribble.scribbleRect(x, 0, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
+  stroke(col2);
+  scribble.scribbleRect(x, 800, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
+  stroke(col4);
+  scribble.scribbleRect(x, 400, blockWidth / 4, blockHeight * Math.floor(fxrand() * 10 + 2));
+  stroke(col3);
+  scribble.scribbleRect(x, 100, blockWidth / 4, blockHeight * fxrand() * 0.5 + 2);
+  stroke(col3);
+  scribble.scribbleRect(x, 700, blockWidth / 4, blockHeight * fxrand() * 0.5 + 2);
+
+   if (x < width + 100) {
+      x = x + spacing; 
+   }
 }
 
 
@@ -123,40 +180,40 @@ function getRect17() {
        strokeWeight(1);
        rectMode(CENTER);       
        
-       fill(col1);
-       rect(x, 0, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col4);
+       rect(x, 0, blockWidth / 8, blockHeight * fxrand() * 0.75 + 1);
        fill(col2);
        rect(x, 50, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
        fill(col3);
        rect(x, 100, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
-       fill(col4);
-       rect(x, 150, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       // fill(col4);
+       // rect(x, 150, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
        fill(col3);
-       rect(x, 200, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       rect(x, 200, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
        fill(col2);
-       rect(x, 250, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
-       fill(col1);
-       rect(x, 300, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
-       fill(col2);
+       rect(x, 250, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       // fill(col1);
+       // rect(x, 300, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       fill(col3);
        rect(x, 350, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
-       fill(col3);
+       fill(col4);
        rect(x, 400, blockWidth / 8, blockHeight * fxrand() * 0.3 + 1);
        fill(col3);
        rect(x, 450, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
-       fill(col4);
-       rect(x, 500, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
-       fill(col3);
+       // fill(col4);
+       // rect(x, 500, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col2);
        rect(x, 550, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
-       fill(col2);
-       rect(x, 600, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
-       fill(col1);
-       rect(x, 650, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
-       fill(col2);
-       rect(x, 700, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
        fill(col3);
+       rect(x, 600, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       // fill(col4);
+       // rect(x, 650, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col3);
+       rect(x, 700, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       fill(col2);
        rect(x, 750, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
        fill(col4);
-       rect(x, 800, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       rect(x, 800, blockWidth / 8, blockHeight * fxrand() * 0.75 + 1);
        
        if (x < width + 100) {
           x = x + spacing; 
