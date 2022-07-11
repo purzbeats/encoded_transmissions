@@ -9,8 +9,55 @@ function painter() {
     getRect4();
   } else if (stateOfArrayIndex == 4) {
     quantized();
+  } else if (stateOfArrayIndex == 5) {
+    jazz();
+  } else if (stateOfArrayIndex == 6) {
+    zoomOut();
   }
 }
+
+
+function jazz() {
+       
+       stroke(0);
+       strokeWeight(fxrand() * 16 + 1);
+       rectMode(CENTER);  
+
+       if (fxrand() > 0.9) {
+         fill(col2);
+         rect(x, 100, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2)); 
+       }
+       
+       if (fxrand() > 0.8) {
+         fill(col3);
+         rect(x, 200, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
+       }
+       if (fxrand() > 0.9) {
+         fill(col4);
+         rect(x, 300, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
+       }
+       if (fxrand() > 0.9) {
+         fill(col1);
+         rect(x, 400, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
+       }
+       if (fxrand() > 0.9) {
+         fill(col2);
+         rect(x, 500, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
+       }
+       if (fxrand() > 0.8) {
+         fill(col3);
+         rect(x, 600, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
+       }
+       if (fxrand() > 0.9) {
+         fill(col4);
+         rect(x, 700, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
+       }
+       
+       if (x < width + 100) {
+          x = x + spacing; 
+       }
+}
+
 
 function quantized() {
        
@@ -31,6 +78,45 @@ function quantized() {
           x = x + spacing; 
        }
 }
+
+function zoomOut() {
+       stroke(0);
+       strokeWeight(1);
+       rectMode(CENTER);       
+       
+       fill(col1);
+       rect(x, 0, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       fill(col2);
+       rect(x, 100, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       fill(col3);
+       rect(x, 150, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       // fill(col4);
+       // rect(x, 200, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       fill(col3);
+       rect(x, 250, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       fill(col2);
+       rect(x, 300, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       fill(col4);
+       rect(x, 400, blockWidth / 8, blockHeight * fxrand() * 2 + 2);
+       fill(col2);
+       rect(x, 500, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       fill(col3);
+       rect(x, 550, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       // fill(col4);
+       // rect(x, 600, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       fill(col3);
+       rect(x, 650, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       fill(col2);
+       rect(x, 700, blockWidth / 8, blockHeight * fxrand() * 0.5 + 1);
+       fill(col1);
+       rect(x, 800, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       
+       if (x < width + 100) {
+          x = x + spacing; 
+       }
+       
+} 
+
 
 function getRect17() {
        stroke(0);
