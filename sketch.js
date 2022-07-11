@@ -5,7 +5,7 @@ let y = 0;
 let spacing;
 let speed;
 
-let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algo", "Bitrot", "Cloudy Day", "Progress Bars"];
+let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algorithm", "Bitrot", "Cloudy Day", "Progress Bars", "Ships"];
 
 var cnv;
 
@@ -27,11 +27,12 @@ function preload() {
 let availablePalettes = ["Tequila Sunrise", "Lilac Field", "Red Wine", "Periwinkle", "Rainforest", "Cotton Candy", "Easter Basket", "Blue Munsell", "Lush Growth", "English Violet", "Irrestible", "Lemon Chiffon", "Ice Cream Shop", "Thistle", "Sea Glass", "Mardi Gras", "Spring Forward", "Autumn Leaves", "Lava Flow", "Opal", "Picnic", "Concrete Towers", "Sienna", "Boardwalk", "Nuclear Burn", "Banana Hammock", "Lapis Lazuli", "French Raspberry", "Cold Stone", "Pumpkin Soup", "Glossy", "Firewatch", "Jam Jar", "Green Tea", "Campfire", "Inferno", "Horizon Breakout", "Beach Pastel", "Fuji", "Night Drive", "Lake House", "Space Cadet", "Bitter Lime", "Retro Love", "Cafe Au Lait", "Caput Mortuum", "Lime Rickey", "Astronaut Ice Cream", "Vaporwave", "Raw Umber", "Monochrome", "Monochrome Inverted"];
 
 paletteIndex = parseInt(fxrand() * 52);
-stateOfArrayIndex = parseInt(fxrand() * 13);
+stateOfArrayIndex = parseInt(fxrand() * 14);
 
 const config = {
    "Palette Name" : availablePalettes[paletteIndex],
    "State Of Array" : stateOfArray[stateOfArrayIndex],
+   "Spacing" : spacing,
 };
 
 window.$fxhashFeatures = {
@@ -57,7 +58,7 @@ function choices() {
   speedMult = 1;
   speedFloor = 1;
 
-  spacing = Math.floor(fxrand() * 4 + 2);
+  spacing = Math.floor(fxrand() * 6 + 2);
   speed = 3;
 
   speedX = 1;
@@ -99,6 +100,7 @@ function printInfo() {
   print("State Of Array:", stateOfArray[stateOfArrayIndex]);
   print("Palette Name:", paletteIndex, paletteName);
   print("Palette Hex:", bg, col1, col2, col3, col4);
+  print("Spacing Factor:", spacing);
 }
 
 function windowResized() {
