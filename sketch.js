@@ -3,6 +3,8 @@ let y = 0;
 let spacing;
 let speed;
 
+let stateOfArray = ["17", "7", "5", "4"];
+
 var cnv;
 
 var blockWidth = 96;
@@ -23,10 +25,11 @@ function preload() {
 let availablePalettes = ["Tequila Sunrise", "Lilac Field", "Red Wine", "Periwinkle", "Rainforest", "Cotton Candy", "Easter Basket", "Blue Munsell", "Lush Growth", "English Violet", "Irrestible", "Lemon Chiffon", "Ice Cream Shop", "Thistle", "Sea Glass", "Mardi Gras", "Spring Forward", "Autumn Leaves", "Lava Flow", "Opal", "Picnic", "Concrete Towers", "Sienna", "Boardwalk", "Nuclear Burn", "Banana Hammock", "Lapis Lazuli", "French Raspberry", "Cold Stone", "Pumpkin Soup", "Glossy", "Firewatch", "Jam Jar", "Green Tea", "Campfire", "Inferno", "Horizon Breakout", "Beach Pastel", "Fuji", "Night Drive", "Lake House", "Space Cadet", "Bitter Lime", "Retro Love", "Cafe Au Lait", "Caput Mortuum", "Lime Rickey", "Astronaut Ice Cream", "Vaporwave", "Raw Umber", "Monochrome", "Monochrome Inverted"];
 
 paletteIndex = parseInt(fxrand() * 52);
-stateOfArrayIndex = parseInt(fxrand() * 5);
+stateOfArrayIndex = parseInt(fxrand() * 4);
 
 const config = {
    "Palette Name" : availablePalettes[paletteIndex],
+   "State Of Array" : stateOfArray[stateOfArrayIndex],
 };
 
 window.$fxhashFeatures = {
@@ -87,6 +90,13 @@ function centerCanvas() {
 }
 
 
+function printInfo() {
+  print("FXHash Seed:", fxhash);
+  print("State Of Array:", stateOfArray[stateOfArrayIndex]);
+  print("Palette Name:", paletteIndex, paletteName);
+  print("Palette Hex:", bg, col1, col2, col3, col4);
+}
+
 function windowResized() {
   centerCanvas();
 }
@@ -103,8 +113,7 @@ function setup() {
   background(c);
 
   // drawText();
-  console.log(fxhash); 
-  console.log(col1, col2, col3, col4, bg, paletteName);
+  printInfo();
 }
 
 function drawText() {
@@ -142,13 +151,59 @@ function getScribbleRect() {
 
 }
 
-function getRect() {
+function getRect17() {
        stroke(0);
        strokeWeight(1);
        rectMode(CENTER);       
        
        fill(col1);
-       rect(x, 100, blockWidth / 8, blockHeight * fxrand() + 24); 
+       rect(x, 0, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col2);
+       rect(x, 50, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col3);
+       rect(x, 100, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       fill(col4);
+       rect(x, 150, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col3);
+       rect(x, 200, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       fill(col2);
+       rect(x, 250, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col1);
+       rect(x, 300, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       fill(col2);
+       rect(x, 350, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col3);
+       rect(x, 400, blockWidth / 8, blockHeight * fxrand() * 0.3 + 1);
+       fill(col3);
+       rect(x, 450, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col4);
+       rect(x, 500, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col3);
+       rect(x, 550, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       fill(col2);
+       rect(x, 600, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col1);
+       rect(x, 650, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       fill(col2);
+       rect(x, 700, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       fill(col3);
+       rect(x, 750, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       fill(col4);
+       rect(x, 800, blockWidth / 8, blockHeight * fxrand() * 1 + 1);
+       
+       if (x < width + 100) {
+          x = x + spacing; 
+       }
+       
+} 
+
+function getRect7() {
+       stroke(0);
+       strokeWeight(1);
+       rectMode(CENTER);       
+       
+       fill(col1);
+       rect(x, 100, blockWidth / 8, blockHeight * fxrand() + 24);
        fill(col2);
        rect(x, 200, blockWidth / 16, blockHeight * fxrand() + 2); 
        fill(col3);
@@ -170,14 +225,56 @@ function getRect() {
 } 
 
 
+function getRect5() {
+       stroke(0);
+       strokeWeight(1);
+       rectMode(CENTER);       
+       
+       fill(col1);
+       rect(x, 200, blockWidth / 8, blockHeight * fxrand() + 4); 
+       fill(col2);
+       rect(x, 300, blockWidth / 4, blockHeight * fxrand() + 2); 
+       fill(col3);
+       rect(x, 400, blockWidth / 8, blockHeight * fxrand() + 24); 
+       fill(col4);
+       rect(x, 500, blockWidth / 16, blockHeight * fxrand() + 2); 
+       fill(col1);
+       rect(x, 600, blockWidth / 8, blockHeight * fxrand() + 24); 
+       
+       
+       if (x < width + 100) {
+          x = x + spacing; 
+       }
+       
+} 
 
+function getRect4() {
+       stroke(0);
+       strokeWeight(1);
+       rectMode(CENTER);       
+       fill(col1);
+       rect(x, 100, blockWidth / 4, blockHeight * fxrand() * 2 + 1); 
+       fill(col2);
+       rect(x, 300, blockWidth / 8, blockHeight * fxrand() * 2 + 1); 
+       fill(col3);
+       rect(x, 500, blockWidth / 16, blockHeight * fxrand() * 2 + 1); 
+       fill(col4);
+       rect(x, 700, blockWidth / 16, blockHeight * fxrand() * 2 + 1); 
+       
+       
+       if (x < width + 100) {
+          x = x + spacing; 
+       }
+       
+} 
 
 function draw() {
 
 
 
 
-      getRect();
+      painter();
+
       rectMode(CENTER);
       noFill();
       stroke(col2);
