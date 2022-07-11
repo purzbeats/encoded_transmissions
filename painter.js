@@ -290,15 +290,15 @@ function getRect5() {
        strokeWeight(1);
        rectMode(CENTER);       
        
-       fill(col1);
+       fill(col3);
        rect(x, 200, blockWidth / 8, blockHeight * fxrand() + 4); 
        fill(col2);
        rect(x, 300, blockWidth / 4, blockHeight * fxrand() + 2); 
-       fill(col3);
-       rect(x, 400, blockWidth / 8, blockHeight * fxrand() + 24); 
-       fill(col4);
-       rect(x, 500, blockWidth / 16, blockHeight * fxrand() + 2); 
        fill(col1);
+       rect(x, 400, blockWidth / 8, blockHeight * fxrand() + 24); 
+       fill(col2);
+       rect(x, 500, blockWidth / 16, blockHeight * fxrand() + 2); 
+       fill(col3);
        rect(x, 600, blockWidth / 8, blockHeight * fxrand() + 24); 
        
        
