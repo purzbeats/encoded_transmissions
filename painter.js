@@ -23,6 +23,8 @@ function painter() {
     bitrot();
   } else if (stateOfArrayIndex == 11) {
     clouds();
+  } else if (stateOfArrayIndex == 12) {
+    progressBars();
   }
 }
 
@@ -68,6 +70,38 @@ function sketchCircles() {
    }
 }
 
+function progressBars() {
+
+  strokeWeight(1);
+  rectMode(CENTER);  
+  noFill();
+
+  stroke(col1);
+  scribble.scribbleRect(x, 0, 300, blockHeight * fxrand() * 1 + 2);
+  stroke(col2);
+  scribble.scribbleRect(x, 100, 400, blockHeight * Math.floor(fxrand() * 1 + 1));
+  stroke(col3);
+  scribble.scribbleRect(x, 200, 500, blockHeight * Math.ceil(fxrand() * 1 + 1));
+  if (fxrand() > 0.1) {
+    stroke(0);
+    fill(col4);
+    scribble.scribbleEllipse(x, 400, 32, 32 * fxrand() * 2 + 1);
+  }
+  stroke(col3);
+  scribble.scribbleRect(x, 300, 600, blockHeight * fxrand() * 0.5 + 2);
+  stroke(col1);
+  scribble.scribbleRect(x, 500, 500, blockHeight * Math.floor(fxrand() * 1 + 1));
+  stroke(col2);
+  scribble.scribbleRect(x, 600, 300, blockHeight * Math.floor(fxrand() * 1 + 1));
+  stroke(col3);
+  scribble.scribbleRect(x, 700, 400, blockHeight * Math.ceil(fxrand() * 1 + 1));
+  stroke(col1);
+  scribble.scribbleRect(x, 800, blockWidth / 4, blockHeight * fxrand() * 1 + 2);
+
+   if (x < width + 100) {
+      x = x + spacing; 
+   }
+}
 
 
 function sketch() {
@@ -78,13 +112,18 @@ function sketch() {
 
   stroke(col1);
   scribble.scribbleRect(x, 0, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
-  stroke(col2);
+  stroke(col1);
   scribble.scribbleRect(x, 800, blockWidth / 4, blockHeight * Math.floor(fxrand() * 2 + 2));
   stroke(col4);
-  scribble.scribbleRect(x, 400, blockWidth / 4, blockHeight * Math.floor(fxrand() * 10 + 2));
-  stroke(col3);
+  scribble.scribbleRect(x, 400, blockWidth / 4, blockHeight * Math.ceil(fxrand() * 6 + 2));
+  if (fxrand() > 0.75) {
+    stroke(0);
+    fill(col3);
+    rect(x, 400, blockWidth / 4, blockHeight * Math.ceil(fxrand() * 3 + 1));
+  }
+  stroke(col2);
   scribble.scribbleRect(x, 100, blockWidth / 4, blockHeight * fxrand() * 0.5 + 2);
-  stroke(col3);
+  stroke(col2);
   scribble.scribbleRect(x, 700, blockWidth / 4, blockHeight * fxrand() * 0.5 + 2);
 
    if (x < width + 100) {
