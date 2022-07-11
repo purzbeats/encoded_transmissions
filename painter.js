@@ -32,30 +32,35 @@ function sketchCircles() {
   rectMode(CENTER);  
   noFill();
 
-  stroke(col1);
+  stroke(0);
+  fill(col1);
   scribble.scribbleEllipse(x, 0, blockWidth / 16, blockHeight * Math.floor(fxrand() * 2 + 2));
 
-  if (fxrand() > 0.9) {
-    stroke(col2);
-    scribble.scribbleEllipse(x, 200, blockWidth / 2, blockHeight * Math.floor(fxrand() * 4 + 2));
+  if (fxrand() > 0.1) {
+    stroke(0);
+    fill(col2);
+    scribble.scribbleEllipse(x, 150, 32, 24 * fxrand() + 16);
   }
 
   if (fxrand() > 0.5) {
     stroke(col3);
-    scribble.scribbleRect(x, 400, blockWidth / 4, blockHeight * Math.floor(fxrand() * 10 + 2));
+    scribble.scribbleRect(x, 400, blockWidth / 4, blockHeight * Math.floor(fxrand() * 6 + 2));
   }
 
   if (fxrand() > 0.9) {
-    stroke(col4);
-    scribble.scribbleRect(x, 400, blockWidth / 4, blockHeight * Math.floor(fxrand() * 8 + 2));
+    stroke(0);
+    fill(col4);
+    rect(x, 400, blockWidth / 4, blockHeight * Math.floor(fxrand() * 4 + 2));
   }
 
-  if (fxrand() > 0.9) {
-    stroke(col2);
-    scribble.scribbleEllipse(x, 600, blockWidth / 2, blockHeight * Math.floor(fxrand() * 4 + 2));
+  if (fxrand() > 0.1) {
+    stroke(0);
+    fill(col2);
+    scribble.scribbleEllipse(x, 650, 32, 24 * fxrand() + 16);
   }
 
-  stroke(col1);
+  stroke(0);
+  fill(col1);
   scribble.scribbleEllipse(x, 800, blockWidth / 16, blockHeight * Math.floor(fxrand() * 2 + 2));
 
    if (x < width + 100) {
@@ -176,33 +181,6 @@ function bitrot() {
          fill(col1);
          rect(x, 800, blockWidth / 4, blockHeight * Math.ceil(fxrand() * 3) + 1);
        }
-       // fill(col4);
-       // rect(x, 800, blockWidth / 8, blockHeight * fxrand() * 2);
-
-       if (x < width + 100) {
-          x = x + spacing; 
-       }
-}
-
-
-function algo() {
-       
-       stroke(0);
-       strokeWeight(1);
-       rectMode(CENTER);  
-
-       // fill(col4);
-       // rect(x, 0, blockWidth / 8, blockHeight * fxrand() * 2);
-       fill(col1);
-       rect(x, 100, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 3) + 1);
-       fill(col2);
-       rect(x, 250, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 2) + 1);
-       fill(col3);
-       rect(x, 400, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 3) + 1);
-       fill(col2);
-       rect(x, 550, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 2) + 1);
-       fill(col1);
-       rect(x, 700, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 3) + 1);
        // fill(col4);
        // rect(x, 800, blockWidth / 8, blockHeight * fxrand() * 2);
 
