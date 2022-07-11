@@ -182,7 +182,10 @@ function draw() {
       noFill();
       stroke(col2);
       strokeWeight(10);
-      rect(400, 400, width - 5, height - 5);
+      rect(400, 400, width - 10, height - 10);
+      stroke(0);
+      strokeWeight(4);
+      rect(400, 400, width - 4, height - 4);
       // getScribbleRect();
       // speedMult = speedMult + 1000;
 
