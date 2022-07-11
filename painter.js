@@ -19,6 +19,10 @@ function painter() {
     sketchCircles();
   } else if (stateOfArrayIndex == 9) {
     algo();
+  } else if (stateOfArrayIndex == 10) {
+    bitrot();
+  } else if (stateOfArrayIndex == 11) {
+    clouds();
   }
 }
 
@@ -121,6 +125,135 @@ function jazz() {
        }
        
        if (x < width + 100) {
+          x = x + spacing; 
+       }
+}
+
+
+function bitrot() {
+       
+       stroke(0);
+       strokeWeight(1);
+       rectMode(CENTER);  
+
+       // fill(col4);
+       // rect(x, 0, blockWidth / 8, blockHeight * fxrand() * 2);
+       if (fxrand() > 0.3) {
+       fill(col1);
+       rect(x, 0, blockWidth / 4, blockHeight * Math.ceil(fxrand() * 3) + 1);
+       }
+       if (fxrand() > 0.9) {
+         fill(col2);
+         rect(x, 150, blockWidth / 6, blockHeight * Math.ceil(fxrand() * 2) + 1);
+       }
+       if (fxrand() > 0.5) {
+         fill(col3);
+         rect(x, 200, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 2) + 1);
+       }
+       if (fxrand() > 0.1) {
+         scribble.scribbleEllipse(x, 300, 32 * fxrand() + 16, 32 * fxrand() + 16);
+       }
+       if (fxrand() > 0.1) {
+         scribble.scribbleEllipse(x, 500, 32 * fxrand() + 16, 32 * fxrand() + 16);
+       }
+       if (fxrand() > 0.6) {
+         fill(col4);
+         rect(x, 400, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       }
+       if (fxrand() > 0.9) {
+         fill(col1);
+         rect(x, 400, blockWidth / 8, blockHeight * fxrand() * 2 + 1);
+       }
+       if (fxrand() > 0.5) {
+         fill(col3);
+         rect(x, 600, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 2) + 1);
+       }
+       if (fxrand() > 0.9) {
+         fill(col2);
+         rect(x, 650, blockWidth / 6, blockHeight * Math.ceil(fxrand() * 2) + 1);
+       }
+       if (fxrand() > 0.3) {         
+         fill(col1);
+         rect(x, 800, blockWidth / 4, blockHeight * Math.ceil(fxrand() * 3) + 1);
+       }
+       // fill(col4);
+       // rect(x, 800, blockWidth / 8, blockHeight * fxrand() * 2);
+
+       if (x < width + 100) {
+          x = x + spacing; 
+       }
+}
+
+
+function algo() {
+       
+       stroke(0);
+       strokeWeight(1);
+       rectMode(CENTER);  
+
+       // fill(col4);
+       // rect(x, 0, blockWidth / 8, blockHeight * fxrand() * 2);
+       fill(col1);
+       rect(x, 100, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 3) + 1);
+       fill(col2);
+       rect(x, 250, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 2) + 1);
+       fill(col3);
+       rect(x, 400, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 3) + 1);
+       fill(col2);
+       rect(x, 550, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 2) + 1);
+       fill(col1);
+       rect(x, 700, blockWidth / 8, blockHeight * Math.ceil(fxrand() * 3) + 1);
+       // fill(col4);
+       // rect(x, 800, blockWidth / 8, blockHeight * fxrand() * 2);
+
+       if (x < width + 100) {
+          x = x + spacing; 
+       }
+}
+
+
+function clouds() {
+       
+       stroke(0);
+       strokeWeight(1);
+       rectMode(CENTER);  
+
+       
+       if (fxrand() > 0.1) {
+         stroke(col2);
+         scribble.scribbleRect(x, 200, 32 * fxrand() + 16, 32 * fxrand() + 16);
+       }
+       if (fxrand() > 0.1) {
+         stroke(col4);
+         scribble.scribbleRect(x, 600, 32 * fxrand() + 16, 32 * fxrand() + 16);
+       }
+       if (fxrand() > 0.1) {
+         stroke(0);
+         fill(col1);
+         rect(x, 400, 32 * fxrand() + 16, 64 * fxrand() + 16);
+       }
+       if (fxrand() > 0.1) {
+         stroke(0);
+         fill(col2);
+         rect(x, 300, 32 * fxrand() + 16, 64 * fxrand() + 16);
+       }
+       if (fxrand() > 0.1) {
+         stroke(0);
+         fill(col3);
+         rect(x, 500, 32 * fxrand() + 16, 64 * fxrand() + 16);
+       }
+
+       if (fxrand() > 0.05) {
+         stroke(col3);
+         fill(bg);
+         scribble.scribbleEllipse(x, 0, 256 * fxrand() + 16, 256 * fxrand() + 16);
+       }
+       if (fxrand() > 0.9) {
+        fill(col1);
+         scribble.scribbleEllipse(x, 800, 256 * fxrand() + 16, 256 * fxrand() + 16);
+       }
+
+       if (x < width + 300) {
           x = x + spacing; 
        }
 }

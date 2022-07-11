@@ -1,9 +1,11 @@
+
+// Define global variables and choices, set up arrays, send FXHash features data out
 let x = 0;
 let y = 0;
 let spacing;
 let speed;
 
-let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algo"];
+let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algo", "Bitrot", "Cloudy Day"];
 
 var cnv;
 
@@ -25,7 +27,7 @@ function preload() {
 let availablePalettes = ["Tequila Sunrise", "Lilac Field", "Red Wine", "Periwinkle", "Rainforest", "Cotton Candy", "Easter Basket", "Blue Munsell", "Lush Growth", "English Violet", "Irrestible", "Lemon Chiffon", "Ice Cream Shop", "Thistle", "Sea Glass", "Mardi Gras", "Spring Forward", "Autumn Leaves", "Lava Flow", "Opal", "Picnic", "Concrete Towers", "Sienna", "Boardwalk", "Nuclear Burn", "Banana Hammock", "Lapis Lazuli", "French Raspberry", "Cold Stone", "Pumpkin Soup", "Glossy", "Firewatch", "Jam Jar", "Green Tea", "Campfire", "Inferno", "Horizon Breakout", "Beach Pastel", "Fuji", "Night Drive", "Lake House", "Space Cadet", "Bitter Lime", "Retro Love", "Cafe Au Lait", "Caput Mortuum", "Lime Rickey", "Astronaut Ice Cream", "Vaporwave", "Raw Umber", "Monochrome", "Monochrome Inverted"];
 
 paletteIndex = parseInt(fxrand() * 52);
-stateOfArrayIndex = parseInt(fxrand() * 10);
+stateOfArrayIndex = parseInt(fxrand() * 12);
 
 const config = {
    "Palette Name" : availablePalettes[paletteIndex],
@@ -37,6 +39,8 @@ window.$fxhashFeatures = {
 };
 //////
 
+
+// Define all the local choices
 function choices() {
 
   index = paletteIndex;
@@ -105,7 +109,7 @@ function setup() {
  
   cnv = createCanvas(800, 800);
   centerCanvas();
-  pixelDensity(3);
+  pixelDensity(2);
 
   choices();
   let c = color(bg);
@@ -116,42 +120,16 @@ function setup() {
 }
 
 
-function getScribbleRect() {
-
-      blockMult = 1;
-
-      for (let z = 0; z < 1; z++) {
-       stroke(col1);
-       strokeWeight(fxrand() * 3);
-       scribble.scribbleRect((z + frameCount * speedX * speedMult1) % width, (z + frameCount * speedY * speedMult4) % height, blockWidth, blockHeight);
-
-       stroke(col2);
-       strokeWeight(fxrand() * 3);
-       scribble.scribbleRect((z + frameCount * speedX * speedMult2) % width, (z + frameCount * speedY * speedMult3) % height, blockWidth, blockHeight);
-
-       stroke(col3);
-       strokeWeight(fxrand() * 3);
-       scribble.scribbleRect((z + frameCount * speedX * speedMult3) % width, (z + frameCount * speedY * speedMult2) % height, blockWidth, blockHeight);
-
-       stroke(col4);
-       strokeWeight(fxrand() * 3);
-       scribble.scribbleRect((z + frameCount * speedX * speedMult4) % width, (z + frameCount * speedY * speedMult1) % height, blockWidth, blockHeight);
-      } 
-
-}
-
-
+// Press 's' to save PNG
 function keyTyped() {
   if (key === 's') {
           save();
       }
 }
 
-
 function draw() {
 
-
-
+      // Paint for 500 frames, do stuff after.
       if (frameCount < 500) {     
         painter();
       } else if (frameCount > 500) {
@@ -172,8 +150,7 @@ function draw() {
       }
 
 
-
-
+      // Border
       rectMode(CENTER);
       noFill();
       stroke(col2);
@@ -183,6 +160,7 @@ function draw() {
       strokeWeight(4);
       rect(400, 400, width - 4, height - 4);
       
+      // Stop drawing everything after 600 frames
       if (frameCount > 600) {
         noLoop();
       }
