@@ -137,7 +137,7 @@ function draw() {
 
       // Paint for 500 frames, do stuff after.
       if (frameCount < 500) {     
-        commonGround();
+        painter();
       } else if (frameCount > 500) {
 
       }
