@@ -5,7 +5,7 @@ let y = 0;
 let spacing;
 let speed;
 
-let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algorithm", "Bitrot", "Cloudy Day", "Progress Bars", "Ships", "Satellites", "Swim Meet", "Floor Plans", "Vines", "Encoded Transmission", "Handdrawn Waveforms"];
+let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algorithm", "Bitrot", "Cloudy Day", "Progress Bars", "Common Ground", "Satellites", "Swim Meet", "Floor Plans", "Vines", "Encoded Transmission", "Handdrawn Waveforms"];
 
 var cnv;
 
@@ -137,7 +137,7 @@ function draw() {
 
       // Paint for 500 frames, do stuff after.
       if (frameCount < 500) {     
-        painter();
+        commonGround();
       } else if (frameCount > 500) {
 
       }
