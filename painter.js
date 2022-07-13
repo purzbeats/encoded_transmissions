@@ -39,8 +39,370 @@ function painter() {
     encodedTransmission();  
   } else if (stateOfArrayIndex == 19) {
     drawnWaveforms();      
+  } else if (stateOfArrayIndex == 20) {
+    decoderKey();     
+  } else if (stateOfArrayIndex == 21) {
+    gridRunner();      
+  } else if (stateOfArrayIndex == 22) {
+    bioSigns();      
+  } else if (stateOfArrayIndex == 23) {
+    windows();          
+  } else if (stateOfArrayIndex == 24) {
+    weaveform();          
+  } else if (stateOfArrayIndex == 25) {
+    chalkboard();          
   }
 }
+
+function chalkboard() {
+
+  noFill();
+  
+  strokeWeight(fxrand() * 2 + 1);
+  
+  if (fxrand() > 0.8) {
+    stroke(col4);
+    noFill();
+    scribble.scribbleRect(x, 400, 64, 24 * Math.ceil(fxrand() * 4) + 2);
+  }
+  if (fxrand() > 0.8) {
+    stroke(col1);
+    noFill();
+    scribble.scribbleRect(x, 50, 64, 64);
+  }
+  if (fxrand() > 0.6) {
+    stroke(col2);
+    noFill();
+    scribble.scribbleEllipse(x, 200, 64, 24 * Math.ceil(fxrand() * 4) + 2);
+  } 
+  if (fxrand() > 0.8) {
+    stroke(col3);
+    noFill();
+    scribble.scribbleEllipse(x, 300, 48, 48);
+  }
+  if (fxrand() > 0.8) {
+    stroke(col3);
+    noFill();
+    scribble.scribbleEllipse(x, 500, 48, 48);
+  }
+  if (fxrand() > 0.6) {
+    stroke(col2);
+    noFill();
+    scribble.scribbleEllipse(x, 600, 64, 24 * Math.ceil(fxrand() * 4) + 2);
+  }
+  if (fxrand() > 0.8) {
+    stroke(col1);
+    noFill();
+    scribble.scribbleRect(x, 750, 64, 64);
+  }
+
+  if (x < height + 150) {
+    x = x + spacing; 
+  }
+}
+
+function weaveform() {
+  
+  rectMode(CENTER);
+
+  strokeWeight(1);
+  stroke(0);
+
+  
+    fill(col1);
+    rect(100, y, 12 * Math.ceil(fxrand() * 4), blockHeight);
+    fill(col2);
+    rect(200, y, 12 * Math.ceil(fxrand() * 4), blockHeight);
+    fill(col3);
+    rect(300, y, 12 * Math.ceil(fxrand() * 4), blockHeight);
+    fill(col4);
+    rect(400, y, 12 * Math.ceil(fxrand() * 4), blockHeight);
+    fill(col3);
+    rect(500, y, 12 * Math.ceil(fxrand() * 4), blockHeight);
+    fill(col2);
+    rect(600, y, 12 * Math.ceil(fxrand() * 4), blockHeight);
+    fill(col1);
+    rect(700, y, 12 * Math.ceil(fxrand() * 4), blockHeight);
+    
+   if (y < height + 100) {
+      y = y + spacing; 
+   } else {
+
+       fill(col1);
+       rect(x, 100, blockWidth / 4, 12 * Math.ceil(fxrand() * 4));
+       fill(col2);
+       rect(x, 200, blockWidth / 4, 12 * Math.ceil(fxrand() * 4));
+       fill(col3);
+       rect(x, 300, blockWidth / 4, 12 * Math.ceil(fxrand() * 4));
+       fill(col4);
+       rect(x, 400, blockWidth / 4, 12 * Math.ceil(fxrand() * 4));
+       fill(col3);
+       rect(x, 500, blockWidth / 4, 12 * Math.ceil(fxrand() * 4));
+       fill(col2);
+       rect(x, 600, blockWidth / 4, 12 * Math.ceil(fxrand() * 4));
+       fill(col1);
+       rect(x, 700, blockWidth / 4, 12 * Math.ceil(fxrand() * 4));
+
+       if (x < height + 100) {
+          x = x + spacing; 
+       }
+   }
+
+}
+
+
+function windows() {
+  
+  rectMode(CENTER);
+
+  strokeWeight(1);
+  stroke(0);
+
+  fill(col4);
+  rect(x, 0, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 0, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+  
+  fill(col1);
+  rect(x, 50, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 50, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col1);
+  rect(x, 100, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 100, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+  
+  fill(col1);
+  rect(x, 150, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 150, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+  
+  fill(col2);
+  rect(x, 200, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 200, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+  
+  fill(col2);
+  rect(x, 250, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 250, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+  
+  fill(col2);
+  rect(x, 300, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 300, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+  
+  fill(col3);
+  rect(x, 350, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 350, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col4);
+  rect(x, 400, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 400, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col3);
+  rect(x, 450, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 450, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col2);
+  rect(x, 500, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 500, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col2);
+  rect(x, 550, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 550, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col2);
+  rect(x, 600, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 600, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col1);
+  rect(x, 650, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 650, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col1);
+  rect(x, 700, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 700, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col1);
+  rect(x, 750, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 750, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+  fill(col4);
+  rect(x, 800, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.9);
+  scribble.scribbleRect(x, 800, blockWidth / spacingArrayIndex + 32 * fxrand(), blockHeight * 0.3);
+
+
+   if (x < width + 100) {
+      x = x + spacing; 
+   }
+}
+
+function bioSigns() {
+
+  strokeWeight(1);
+  rectMode(CENTER);  
+  
+
+  
+  // scribble.scribbleRect(x, 800, fxrand() * 10 + 5, blockHeight * Math.ceil(fxrand() * 24) + 2);
+  stroke(0);
+  fill(col2);
+  scribble.scribbleRect(x, 250, fxrand() * 40, blockHeight * 2 / Math.ceil(fxrand() * 3) + 2);
+  fill(col3);
+  rect(x, 250, fxrand() * 40, blockHeight * 2 / Math.ceil(fxrand() * 3) + 2);
+
+  if (fxrand() > 0.1) {
+    stroke(0);
+    fill(col4);
+    scribble.scribbleEllipse(x, 100, 5 * spacingArrayIndex, blockHeight * 2 / Math.ceil(fxrand() * 3) + 2);  
+  }
+
+  if (fxrand() > 0.5) {
+    stroke(0);
+    fill(col1);
+    scribble.scribbleEllipse(x, 100, 5 * spacingArrayIndex, blockHeight * 2 / Math.ceil(fxrand() * 3) + 2);  
+  }
+
+  
+  stroke(0);
+  fill(col1);
+  scribble.scribbleEllipse(x, 400, fxrand() * 40, blockHeight * 2 / Math.ceil(fxrand() * 16) + 2);
+
+  stroke(0);
+  fill(col4);
+  scribble.scribbleEllipse(x, 400, fxrand() * 40, blockHeight * 2 / Math.ceil(fxrand() * 16) + 2);
+
+
+  stroke(0);
+  fill(col2);
+  scribble.scribbleRect(x, 550, fxrand() * 40, blockHeight * 2 / Math.ceil(fxrand() * 3) + 2);
+  fill(col3);
+  rect(x, 550, fxrand() * 40, blockHeight * 2 / Math.ceil(fxrand() * 3) + 2);
+
+  if (fxrand() > 0.1) {
+    stroke(0);
+    fill(col4);
+    scribble.scribbleEllipse(x, 700, 5 * spacingArrayIndex, blockHeight * 2 / Math.ceil(fxrand() * 3) + 2);  
+  }
+
+  if (fxrand() > 0.5) {
+    stroke(0);
+    fill(col1);
+    scribble.scribbleEllipse(x, 700, 5 * spacingArrayIndex, blockHeight * 2 / Math.ceil(fxrand() * 3) + 2);  
+  }
+  
+    
+   if (x < width + 100) {
+      x = x + spacing; 
+   }
+}
+
+
+function gridRunner() {
+       
+       stroke(0);
+       strokeWeight(1);
+       rectMode(CENTER);  
+
+       if (fxrand() > 0.5) {
+        fill(col1);
+        rect(x, 0, blockWidth / 12, blockHeight * Math.ceil(fxrand() * 10) + 1); 
+       }
+
+       if (fxrand() > 0.3) {
+        fill(col2);
+        rect(x, 0, blockWidth / 12, blockHeight * Math.ceil(fxrand() * 8) + 1); 
+       }
+
+       if (fxrand() > 0.5) {
+        fill(col3);
+        rect(x, 0, blockWidth / 12, blockHeight * Math.ceil(fxrand() * 6) + 1); 
+       }
+
+       if (fxrand() > 0.3) {
+        fill(col4);
+        rect(x, 0, blockWidth / 12, blockHeight * Math.ceil(fxrand() * 4) + 1); 
+       }
+
+       fill(col1);
+       if (fxrand() > 0.5) {
+         rect(x, 800, blockWidth / 12, blockHeight * Math.ceil(fxrand() * 10) + 1);
+       }
+
+       fill(col2);
+       if (fxrand() > 0.3) {
+         rect(x, 800, blockWidth / 12, blockHeight * Math.ceil(fxrand() * 8) + 1);
+       }
+
+       if (fxrand() > 0.5) {
+        fill(col3);
+        rect(x, 800, blockWidth / 12, blockHeight * Math.ceil(fxrand() * 6) + 1); 
+       }
+
+       if (fxrand() > 0.3) {
+        fill(col4);
+        rect(x, 800, blockWidth / 12, blockHeight * Math.ceil(fxrand() * 4) + 1); 
+       }
+
+       
+       strokeWeight(1);
+       stroke(0);
+       scribble.scribbleEllipse(x, 400, 25 * spacingArrayIndex, Math.ceil(fxrand() * 25 * spacingArrayIndex) + 1);
+       
+       if (fxrand() > 0.7) {
+         
+         scribble.scribbleEllipse(x, 400, 25 * spacingArrayIndex, Math.ceil(fxrand() * 25 * spacingArrayIndex) + 1);
+       }
+       
+      scribble.scribbleEllipse(x, 300, 8 * spacingArrayIndex, Math.ceil(fxrand() * 10 * spacingArrayIndex) + 1);
+       
+       if (fxrand() > 0.7) {
+         
+         scribble.scribbleEllipse(x, 300, 8 * spacingArrayIndex, Math.ceil(fxrand() * 10 * spacingArrayIndex) + 1);
+       }
+
+      scribble.scribbleEllipse(x, 500, 8 * spacingArrayIndex, Math.ceil(fxrand() * 10 * spacingArrayIndex) + 1);
+       
+       if (fxrand() > 0.7) {
+         
+         scribble.scribbleEllipse(x, 500, 8 * spacingArrayIndex, Math.ceil(fxrand() * 10 * spacingArrayIndex) + 1);
+       }
+ 
+
+       if (x < width + 100) {
+          x = x + spacing; 
+       }
+}
+
+
+
+function decoderKey() {
+
+strokeWeight(1);
+
+fill(col1);
+rect(x, 200, 4 * spacingArrayIndex, 2 * Math.ceil(fxrand() * 96));
+
+fill(col2);
+rect(x, 200, 4 * spacingArrayIndex, 2 * Math.ceil(fxrand() * 32));
+
+fill(col3);
+rect(x, 600, 4 * spacingArrayIndex, 2 * Math.ceil(fxrand() * 96));
+
+fill(col4);
+rect(x, 600, 4 * spacingArrayIndex, 2 * Math.ceil(fxrand() * 32));
+
+stroke(col4);
+if (fxrand() > 0.1) {
+  scribble.scribbleRect(x, 400, 2 * spacingArrayIndex, 4 * Math.ceil(fxrand() * 32));
+}
+
+stroke(col4);
+noFill();
+scribble.scribbleEllipse(x, 0, 32 * spacingArrayIndex, 4 * Math.ceil(fxrand() * 32));
+scribble.scribbleEllipse(x, 800, 32 * spacingArrayIndex, 4 * Math.ceil(fxrand() * 32));
+
+  if (x < width + 220) {
+    x = x + spacing; 
+  }
+
+}
+
 
 function drawnWaveforms() {
 
@@ -493,24 +855,24 @@ function progressBars() {
   noFill();
 
   stroke(col1);
-  scribble.scribbleRect(x, 0, fxrand() * 700 + 20, blockHeight * fxrand() * 1 + 2);
+  scribble.scribbleRect(x, 0, blockWidth / spacingArrayIndex * fxrand() * 6, blockHeight * fxrand() * 1 + 2);
   stroke(col2);
-  scribble.scribbleRect(x, 100, fxrand() * 700 + 20, blockHeight * Math.floor(fxrand() * 1 + 1));
+  scribble.scribbleRect(x, 100, blockWidth / spacingArrayIndex * fxrand() * 6, blockHeight * Math.floor(fxrand() * 1 + 1));
   stroke(col3);
-  scribble.scribbleRect(x, 200, fxrand() * 700 + 20, blockHeight * Math.ceil(fxrand() * 1 + 1));
+  scribble.scribbleRect(x, 200, blockWidth / spacingArrayIndex * fxrand() * 6, blockHeight * Math.ceil(fxrand() * 1 + 1));
   if (fxrand() > 0.1) {
     stroke(0);
     fill(col4);
     scribble.scribbleEllipse(x, 400, 32, 32 * fxrand() * 2 + 1);
   }
   stroke(col3);
-  scribble.scribbleRect(x, 300, fxrand() * 700 + 20, blockHeight * fxrand() * 0.5 + 2);
+  scribble.scribbleRect(x, 300, blockWidth / spacingArrayIndex * fxrand() * 6, blockHeight * fxrand() * 0.5 + 2);
   stroke(col1);
-  scribble.scribbleRect(x, 500, fxrand() * 700 + 20, blockHeight * Math.floor(fxrand() * 1 + 1));
+  scribble.scribbleRect(x, 500, blockWidth / spacingArrayIndex * fxrand() * 6, blockHeight * Math.floor(fxrand() * 1 + 1));
   stroke(col2);
-  scribble.scribbleRect(x, 600, fxrand() * 700 + 20, blockHeight * Math.floor(fxrand() * 1 + 1));
+  scribble.scribbleRect(x, 600, blockWidth / spacingArrayIndex * fxrand() * 6, blockHeight * Math.floor(fxrand() * 1 + 1));
   stroke(col3);
-  scribble.scribbleRect(x, 700, fxrand() * 700 + 20, blockHeight * Math.ceil(fxrand() * 1 + 1));
+  scribble.scribbleRect(x, 700, blockWidth / spacingArrayIndex * fxrand() * 6, blockHeight * Math.ceil(fxrand() * 1 + 1));
   stroke(col1);
   scribble.scribbleRect(x, 800, blockWidth / 4, blockHeight * fxrand() * 1 + 2);
 

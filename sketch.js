@@ -1,11 +1,11 @@
 
 // Define global variables and choices, set up arrays, send FXHash features data out
-let x = 0;
+let x = -50;
 let y = 0;
 let spacing;
 let speed;
 
-let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algorithm", "Bitrot", "Cloudy Day", "Progress Bars", "Common Ground", "Satellites", "Swim Meet", "Floor Plans", "Vines", "Encoded Transmission", "Handdrawn Waveforms"];
+let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algorithm", "Bitrot", "Cloudy Day", "Progress Bars", "Common Ground", "Satellites", "Swim Meet", "Floor Plans", "Vines", "Encoded Transmission", "Handdrawn Waveforms", "Decoder Key", "Grid Runner", "Bio-Signs", "Windows", "Weaveform", "Chalkboard"];
 
 var cnv;
 
@@ -29,7 +29,7 @@ let availablePalettes = ["Tequila Sunrise", "Lilac Field", "Red Wine", "Periwink
 let spacingArray = [0, 1, 2, 3, 4, 5, 6, 7];
 
 paletteIndex = parseInt(fxrand() * 52);
-stateOfArrayIndex = parseInt(fxrand() * 20);
+stateOfArrayIndex = parseInt(fxrand() * 26);
 spacingArrayIndex = parseInt(fxrand() * 6) + 2;
 
 const config = {
@@ -125,6 +125,20 @@ function setup() {
 
 }
 
+function drawText() {
+  rectMode(CORNER);
+  stroke(255);
+  strokeWeight(4);
+  fill(0);
+  rect(30, height - 130, 500, 90);
+  strokeWeight(0);
+  fill(255);
+  textFont('Courier');
+  textSize(24);
+  text("Array: " + stateOfArray[stateOfArrayIndex], 40, height - 100);
+  text("Palette: " + paletteName, 40, height - 60);
+}
+
 
 // Press 's' to save PNG
 function keyTyped() {
@@ -133,15 +147,16 @@ function keyTyped() {
       }
 }
 
+function keyTyped() {
+  if (key === 'i') {
+          drawText();
+      }
+}
+
+
 function draw() {
 
-      // Paint for 500 frames, do stuff after.
-      if (frameCount < 500) {     
-        painter();
-      } else if (frameCount > 500) {
-
-      }
-
+      painter();
 
       // Border
       rectMode(CENTER);
@@ -152,9 +167,10 @@ function draw() {
       stroke(0);
       strokeWeight(4);
       rect(400, 400, width - 4, height - 4);
-      
+
       // Stop drawing everything after 600 frames
-      if (frameCount > 600) {
+      if (frameCount > 1200) {
+        
         noLoop();
       }
 
