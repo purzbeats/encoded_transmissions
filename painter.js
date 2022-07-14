@@ -51,7 +51,176 @@ function painter() {
     weaveform();          
   } else if (stateOfArrayIndex == 25) {
     chalkboard();          
+  } else if (stateOfArrayIndex == 26) {
+    slipstream();          
+  } else if (stateOfArrayIndex == 27) {
+    zenGarden();          
   }
+}
+
+function zenGarden() {
+
+  rWidthFactor = fxrand() * 30 + 5;
+  widthFactor = fxrand() * 30 + 5;
+  heightFactor = 30;
+  
+  strokeWeight(1);
+  stroke(0);
+  
+  if (x < width + 150) {
+    
+    factor1 = fxrand() * 400 + 25;
+    factor2 = fxrand() * 400 + 25;
+
+    strokeWeight(1);
+    noFill();
+    if (fxrand() > 0.993) {
+      stroke(col1);
+      noFill();
+      scribble.scribbleEllipse(x, fxrand() * 800, factor1 + factor2, factor1 + factor2);  
+    }
+    if (fxrand() > 0.993) {
+      stroke(col2);
+      noFill();
+      scribble.scribbleEllipse(x, fxrand() * 800, factor1 + factor2, factor1 + factor2);  
+    }
+    
+    x = x + spacing; 
+
+  } else {
+    
+    stroke(0);
+    noFill();
+
+    factor2 = fxrand() * 20 + 5;
+    
+    if (fxrand() > 0.5) {
+      factorX = fxrand() * 15 * spacingArrayIndex;  
+    } else {
+      factorX = fxrand() * 2 * spacingArrayIndex;  
+    }
+
+    if (fxrand() > 0.5) {
+      factorX1 = fxrand() * 15 * spacingArrayIndex;  
+    } else {
+      factorX1 = fxrand() * 2 * spacingArrayIndex;  
+    }
+    
+    if (fxrand() > 0.5) {
+      factorX2 = fxrand() * 15 * spacingArrayIndex;  
+    } else {
+      factorX2 = fxrand() * 2 * spacingArrayIndex;  
+    }
+    
+
+    stroke(0);
+    noFill();
+    
+    if (fxrand() > 0) {
+      fill(col4);
+      scribble.scribbleEllipse(fxrand() * 25 - factorX1 / 2 + 0, y, factor2 * 2, factor2 * 2);  
+    }
+    
+    if (fxrand() > 0) {
+      fill(col4);
+      scribble.scribbleEllipse(fxrand() * 25 - factorX1 / 2 + 800, y, factor2 * 2, factor2 * 2);
+    }
+
+
+    if (fxrand() > 0) {
+      fill(col3);
+      scribble.scribbleEllipse(fxrand() * factorX2 - factorX / 2 + 100, y, factor2 * 0.5, factor2 * 0.5);
+    }
+    if (fxrand() > 0) {
+      fill(col2);
+      scribble.scribbleEllipse(fxrand() * factorX1 - factorX / 2 + 200, y, factor2, factor2);
+    }
+    if (fxrand() > 0) {
+      fill(col1);
+      scribble.scribbleEllipse(fxrand() * factorX2 - factorX / 2 + 300, y, factor2 * 0.5, factor2 * 0.5);
+    }
+    if (fxrand() > 0) {
+      fill(col4);
+      scribble.scribbleEllipse(fxrand() * factorX1 - factorX / 2 + 400, y, factor2 * 1.5, factor2 * 1.5);
+    }
+    if (fxrand() > 0) {
+      fill(col1);
+      scribble.scribbleEllipse(fxrand() * factorX2 - factorX / 2 + 500, y, factor2 * 0.5, factor2 * 0.5);
+    }
+    if (fxrand() > 0) {
+      fill(col2);
+      scribble.scribbleEllipse(fxrand() * factorX1 - factorX / 2 + 600, y, factor2, factor2);
+    }
+    if (fxrand() > 0) {
+      fill(col3);
+      scribble.scribbleEllipse(fxrand() * factorX2 - factorX / 2 + 700, y, factor2 * 0.5, factor2 * 0.5);
+    }
+
+    y = y + spacing / spacingArrayIndex * Math.ceil(fxrand() * 6) + 2; 
+
+  }
+
+}
+
+function slipstream() {
+
+  stroke(0);
+  strokeWeight(1);
+  
+  fill(col4);
+  rect(x, 50, 5, Math.ceil(fxrand() * 48));
+  fill(col3);
+  rect(x, 100, 5, Math.ceil(fxrand() * 32));
+  fill(col2);
+  rect(x, 150, 5, Math.ceil(fxrand() * 48));
+
+  fill(col2);
+  rect(x, 650, 5, Math.ceil(fxrand() * 48));
+  fill(col3);
+  rect(x, 700, 5, Math.ceil(fxrand() * 32));
+  fill(col4);
+  rect(x, 750, 5, Math.ceil(fxrand() * 48));
+
+  rWidthFactor = fxrand() * 30 + 5;
+  widthFactor = fxrand() * 30 + 5;
+  heightFactor = 30;
+
+  strokeWeight(fxrand() * 2 + 1);  
+  if (fxrand() > 0.1) {
+    stroke(0);
+    fill(col2);
+    scribble.scribbleEllipse(x, 250 + fxrand() * 300, fxrand() * widthFactor + heightFactor, rWidthFactor - heightFactor);
+  }
+
+  if (fxrand() > 0.1) {
+    stroke(0);
+    fill(col3);
+    scribble.scribbleEllipse(x, 250 + fxrand() * 300, fxrand() * widthFactor + heightFactor, rWidthFactor - heightFactor);
+  }
+
+  if (fxrand() > 0.1) {
+    stroke(0);
+    fill(col4);
+    scribble.scribbleEllipse(x, 250 + fxrand() * 300, fxrand() * widthFactor + heightFactor, rWidthFactor - heightFactor);
+  }
+
+  if (fxrand() > 0.1) {
+    stroke(0);
+    noFill();
+    scribble.scribbleEllipse(x, 250 + fxrand() * 300, fxrand() * widthFactor + heightFactor, rWidthFactor - heightFactor);
+  }
+
+  if (fxrand() > 0.1) {
+    stroke(0);
+    noFill();
+    scribble.scribbleEllipse(x, 250 + fxrand() * 300, fxrand() * widthFactor + heightFactor, rWidthFactor - heightFactor);
+  }
+
+
+  if (x < width + 150) {
+    x = x + spacing; 
+  }
+
 }
 
 function chalkboard() {

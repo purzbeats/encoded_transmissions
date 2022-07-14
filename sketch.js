@@ -1,11 +1,21 @@
 
+// Encoded Transmissions for FXHash
+//
+// Generative art piece based on drawing waveforms in many different ways.
+// Big thanks to Frederative for contributing the FXHash features method!
+//
+// Love you all.
+//
+// Purz
+
+
 // Define global variables and choices, set up arrays, send FXHash features data out
 let x = -50;
 let y = 0;
 let spacing;
 let speed;
 
-let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algorithm", "Bitrot", "Cloudy Day", "Progress Bars", "Common Ground", "Satellites", "Swim Meet", "Floor Plans", "Vines", "Encoded Transmission", "Handdrawn Waveforms", "Decoder Key", "Grid Runner", "Bio-Signs", "Windows", "Weaveform", "Chalkboard"];
+let stateOfArray = ["Absolute Chaos", "Modern DAW", "Demo Tape", "Four Track", "Quantized", "Jazz", "Zoom Out", "Sketch Box", "Anxiety In The City", "Algorithm", "Bitrot", "Cloudy Day", "Progress Bars", "Common Ground", "Satellites", "Swim Meet", "Floor Plans", "Vines", "Encoded Transmission", "Handdrawn Waveforms", "Decoder Key", "Grid Runner", "Bio-Signs", "Windows", "Weaveform", "Chalkboard", "Slipstream", "Zen Garden"];
 
 var cnv;
 
@@ -29,7 +39,7 @@ let availablePalettes = ["Tequila Sunrise", "Lilac Field", "Red Wine", "Periwink
 let spacingArray = [0, 1, 2, 3, 4, 5, 6, 7];
 
 paletteIndex = parseInt(fxrand() * 52);
-stateOfArrayIndex = parseInt(fxrand() * 26);
+stateOfArrayIndex = parseInt(fxrand() * 28);
 spacingArrayIndex = parseInt(fxrand() * 6) + 2;
 
 const config = {
@@ -169,7 +179,7 @@ function draw() {
       rect(400, 400, width - 4, height - 4);
 
       // Stop drawing everything after 600 frames
-      if (frameCount > 1200) {
+      if (frameCount > 1600) {
         
         noLoop();
       }
