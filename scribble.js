@@ -19,7 +19,7 @@ function Scribble(p) {
   this.ellipseInc = (Math.PI*2)/this.numEllipseSteps;
 
   this.getOffset = function( minVal, maxVal ) {
-    return this.roughness*(this.sketch.random()*(maxVal-minVal)+minVal);
+    return this.roughness*(this.sketch.fxrand()*(maxVal-minVal)+minVal);
   }
 
   this.buildEllipse = function( cx, cy, rx, ry, offset, overlap ) {
@@ -68,7 +68,7 @@ function Scribble(p) {
     }
 
     var halfOffset = offset/2;
-    var divergePoint = 0.2 + this.sketch.random()*0.2;
+    var divergePoint = 0.2 + this.sketch.fxrand()*0.2;
     var midDispX = this.bowing*this.maxOffset*(y2-y1)/200;
     var midDispY = this.bowing*this.maxOffset*(x1-x2)/200;
     midDispX = this.getOffset( -midDispX, midDispX );
