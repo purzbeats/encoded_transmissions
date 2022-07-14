@@ -150,7 +150,7 @@ function draw() {
       strokeWeight(4);
       rect(400, 400, width - 4, height - 4);
 
-      Shuts down after the slowest potential draw, hopefully!
+      // Shuts down after the slowest potential draw, hopefully!
       if (frameCount > 2400) {
         noLoop();
       }
