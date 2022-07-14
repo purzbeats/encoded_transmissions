@@ -135,38 +135,10 @@ function setup() {
 
 }
 
-function drawText() {
-  rectMode(CORNER);
-  stroke(255);
-  strokeWeight(4);
-  fill(0);
-  rect(30, height - 130, 500, 90);
-  strokeWeight(0);
-  fill(255);
-  textFont('Courier');
-  textSize(24);
-  text("Array: " + stateOfArray[stateOfArrayIndex], 40, height - 100);
-  text("Palette: " + paletteName, 40, height - 60);
-}
-
-
-// Press 's' to save PNG
-function keyTyped() {
-  if (key === 's') {
-          save();
-      }
-}
-
-function keyTyped() {
-  if (key === 'i') {
-          drawText();
-      }
-}
-
 
 function draw() {
 
-      windows();
+      painter();
 
       // Border
       rectMode(CENTER);
@@ -178,10 +150,16 @@ function draw() {
       strokeWeight(4);
       rect(400, 400, width - 4, height - 4);
 
-      // Shuts down after the slowest potential draw, hopefully!
+      Shuts down after the slowest potential draw, hopefully!
       if (frameCount > 2400) {
         noLoop();
       }
 
 }
 
+// Press 's' to save PNG
+function keyTyped() {
+  if (key === 's') {
+        save();
+      }
+}
